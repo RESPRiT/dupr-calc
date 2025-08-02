@@ -1,5 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@fontsource-variable/inter";
+
+@theme {
+  --font-display: 'Inter Variable', sans-serif;
+  --color-navy-900: rgb(5 21 94);
+}
 
 @custom-variant dark (&:is(.dark *));
 
