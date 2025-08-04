@@ -9,9 +9,9 @@ import "./App.css";
 function App() {
   return (
     <div className="bg mx-5 flex justify-center">
-      <div className="">
+      <div className="mb-8">
         <Header />
-        <Calculator /> 
+        <Calculator />
         <Footer />
       </div>
     </div>
