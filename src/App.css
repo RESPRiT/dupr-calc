@@ -11,6 +11,11 @@
     content: "";
     @apply fixed block inset-0 -z-10;
     @apply h-screen w-full;
-    background: linear-gradient(225deg,rgba(75,151,254,1) 0%,rgba(1,99,208,1) 40%,rgba(5,21,94,1) 87%);
+    background: linear-gradient(
+      225deg,
+      rgba(75, 151, 254, 1) 0%,
+      rgba(1, 99, 208, 1) 40%,
+      rgba(5, 21, 94, 1) 87%
+    );
   }
 }

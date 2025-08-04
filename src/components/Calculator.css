@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: 'Inter Variable', sans-serif;
+  --font-display: "Inter Variable", sans-serif;
   --color-navy-900: rgb(5 21 94);
 }
 
@@ -10,14 +10,9 @@ h1 {
 }
 
 h2 {
-  @apply text-xl md:text-2xl font-semibold;
+  @apply text-xl md:text-2xl font-semibold text-navy-900;
 }
 
 h3 {
   @apply text-sm md:text-base font-semibold text-navy-900;
-}
-
-.rating-input {
-  @apply w-28 h-21 mb-4 rounded-2xl border border-navy-900/20 shadow-none;
-  @apply text-sm md:text-base font-normal
 }

@@ -1,0 +1,4 @@
+{
+  "railingComma": "none",
+  "plugins": ["prettier-plugin-classnames"]
+}

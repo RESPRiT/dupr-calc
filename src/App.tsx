@@ -8,15 +8,13 @@ import "./App.css";
 
 function App() {
   return (
-    <body className="bg mx-4 flex justify-center">
+    <div className="bg mx-5 flex justify-center">
       <div className="">
-
         <Header />
-        <Calculator />
+        <Calculator /> 
         <Footer />
-
       </div>
-    </body>
+    </div>
   );
 }
 
