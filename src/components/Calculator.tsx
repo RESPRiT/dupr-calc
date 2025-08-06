@@ -72,12 +72,12 @@ function Calculator() {
         <div className="flex flex-col max-w-2xs">
           <h2 className="text-navy-900">Player Ratings</h2>
           <div
-            className="flex justify-between items-center self-center mt-2
-              md:mt-5 w-full"
+            className="flex flex-col justify-between items-start self-center
+              mt-2 md:mt-5 w-full"
           >
-            <div id="team-1">
-              <div className="flex flex-col justify-between items-start">
-                <h3 className="mb-2">Your Team</h3>
+            <div id="team-1" className="w-full">
+              <h3 className="mb-2">Your Team</h3>
+              <div className="flex justify-around">
                 <RatingInput
                   name="one"
                   placeholder="Player 1"
@@ -92,10 +92,9 @@ function Calculator() {
                 />
               </div>
             </div>
-            <h3 className="mx-2 pt-3">vs.</h3>
-            <div id="team-2">
-              <div className="flex flex-col justify-between items-start">
-                <h3 className="mb-2">Opp. Team</h3>
+            <div id="team-2" className="w-full">
+              <h3 className="my-2">Opp. Team</h3>
+              <div className="flex justify-around">
                 <RatingInput
                   name="three"
                   placeholder="Player 3"
@@ -111,7 +110,7 @@ function Calculator() {
               </div>
             </div>
           </div>
-          <h3 className="mt-2">Expected Outcome</h3>
+          <h3 className="mt-4">Expected Outcome</h3>
           <div
             className="bg-navy-900/10 flex justify-center items-center mt-2 h-12
               rounded-2xl"
