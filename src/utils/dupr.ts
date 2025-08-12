@@ -4,7 +4,11 @@ export type MarginResults = {
   lowerScore: number;
 };
 
-export function calculateMargin(
+/*
+This works surprisingly well, even if it's not actually sound,
+because CDF look very linear around the middle!
+*/
+export function calculateMarginLinear(
   ratings: Array<number>,
   playedTo: number,
 ): MarginResults {
@@ -16,13 +20,21 @@ export function calculateMargin(
   const results: MarginResults = {
     winner: ratingDiff > 0 ? "Your" : "Opp.",
     higherScore: playedTo,
-    lowerScore: Math.floor(playedTo * (1 - Math.min(Math.abs(ratingDiff), 1))),
+    lowerScore: Math.round(
+      playedTo * (1 - Math.min(Math.abs(ratingDiff) + 0.0001, 1)),
+    ),
   };
 
   return results;
 }
 
 /*
+EDIT: The below comment made some incorrect assumptions about DUPR's
+expected win curve, but I'll leave it for posterity. Basically, I
+misread some data lol
+
+---
+
 The following is an incomplete implementation of an authentic Elo
 expected score calculation. The problem is that DUPR's behavior
 doesn't match what is possible under an authentic Elo calculation:
@@ -44,7 +56,6 @@ An example match where that was the case:
 - Actual result: 11-2 -> (very minor) rating loss
 */
 
-/*
 export function calculateMargin(
   ratings: Array<number>,
   playedTo: number,
@@ -54,7 +65,17 @@ export function calculateMargin(
   const oppRating =
     ratings.length == 2 ? ratings[1] : (ratings[2] + ratings[3]) / 2;
   const ratingDiff = Math.abs(youRating - oppRating);
-  const advantageCurve = 10; // follow a logistic curve with base _
+  /*
+    We know the below numbers are right (as right as they can be for a
+    logistic function), because we know that the expected win curve must
+    intersect two points:
+    - E(0)   = 11-11
+    - E(0.5) = 11-5.5
+
+    The former is obvious, the latter is based on statements from this
+    interview (around 33:37): https://www.youtube.com/watch?v=BsDnXxDEAJg
+  */
+  const advantageCurve = 9; // follow a logistic curve with base _
   const differenceScale = 0.5; // when the difference is _
   const expectedLower =
     1 / (1 + Math.pow(advantageCurve, ratingDiff / (differenceScale * 2)));
@@ -63,9 +84,8 @@ export function calculateMargin(
   const results: MarginResults = {
     winner: youRating > oppRating ? "Your" : "Opp.",
     higherScore: playedTo,
-    lowerScore: Math.floor(playedTo * normalizedLower),
+    lowerScore: Math.round(playedTo * normalizedLower),
   };
 
   return results;
 }
-*/
