@@ -84,7 +84,7 @@ export function calculateMargin(
   const results: MarginResults = {
     winner: youRating > oppRating ? "Your" : "Opp.",
     higherScore: playedTo,
-    lowerScore: Math.round(playedTo * normalizedLower),
+    lowerScore: ratingDiff <= 1.0 ? Math.round(playedTo * normalizedLower) : -1,
   };
 
   return results;
