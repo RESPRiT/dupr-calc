@@ -53,7 +53,7 @@ function Calculator() {
   }
 
   return (
-    <main className="mt-5 md:mt-10">
+    <main className="mt-[clamp(1.25rem,5vh,2.5rem)]">
       <div className="flex justify-between items-center">
         <h1>Win Margin Calculator</h1>
         {/*<Button
@@ -66,18 +66,20 @@ function Calculator() {
         </Button>*/}
       </div>
       <div
-        className="bg-white p-5 pt-8 mt-3 md:pb-8 md:mt-5 rounded-2xl flex
-          flex-col items-center duration-200"
+        className="bg-white p-[clamp(1.25rem,6.5vw,2rem)] pt-8 mt-3 md:pb-8
+          md:mt-5 rounded-2xl flex flex-col items-center duration-200"
       >
-        <div className="flex flex-col max-w-2xs">
+        <div className="flex flex-col">
           <h2 className="text-navy-900">Player Ratings</h2>
           <div
             className="flex flex-col justify-between items-start self-center
               mt-2 md:mt-5 w-full"
           >
             <div id="team-1" className="w-full">
-              <h3 className="mb-2">Your Team</h3>
-              <div className="flex justify-around">
+              <h3 className="mb-[clamp(0.5rem,1.5vh,1rem)]">Your Team</h3>
+              <div
+                className="flex justify-around space-x-[clamp(1rem,5vw,2rem)]"
+              >
                 <RatingInput
                   name="one"
                   placeholder="Player 1"
@@ -93,8 +95,8 @@ function Calculator() {
               </div>
             </div>
             <div id="team-2" className="w-full">
-              <h3 className="my-2">Opp. Team</h3>
-              <div className="flex justify-around">
+              <h3 className="my-[clamp(0.5rem,1.5vh,1rem)]">Opp. Team</h3>
+              <div className="flex justify-around space-x-[clamp(1rem,6%,2rem)]">
                 <RatingInput
                   name="three"
                   placeholder="Player 3"
@@ -110,10 +112,10 @@ function Calculator() {
               </div>
             </div>
           </div>
-          <h3 className="mt-4">Expected Outcome</h3>
+          <h3 className="mt-[clamp(0.875rem,2vh,1.25rem)]">Expected Outcome</h3>
           <div
-            className="bg-navy-900/10 flex justify-center items-center mt-2 h-12
-              rounded-2xl"
+            className="bg-navy-900/10 flex justify-center items-center
+              mt-[clamp(0.5rem,1.5vh,1rem)] h-12 rounded-2xl"
           >
             <span
               className={`text-sm font-medium
