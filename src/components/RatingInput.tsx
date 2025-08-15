@@ -8,10 +8,11 @@ type RatingInputProps = Omit<ComponentProps<"input">, "value"> & {
 function RatingInput({ value, ...props }: RatingInputProps) {
   return (
     <Input
-      className="w-24 md:w-28 h-21 rounded-2xl border border-navy-900/20
-        valid:border-navy-900/50 shadow-nonetext-[16px] md:text-base font-normal
+      className="max-w-40 min-h-21 h-[14vh] max-h-28 rounded-2xl border
+        border-navy-900/20 valid:border-blue-800/75 shadow-none
+        text-[clamp(1rem,0.25rem+3vw,1.125rem)] md:text-base font-normal
         text-center text-navy-900 placeholder:text-navy-900/20
-        valid:focus-visible:ring-blue-500 transition-shadow duration-400
+        valid:focus-visible:ring-blue-500/75 transition-shadow duration-300
         ease-in-out"
       type="text"
       inputMode="decimal"
