@@ -53,7 +53,7 @@ function Calculator() {
   }
 
   return (
-    <main className="mt-[clamp(1.25rem,5vh,2.5rem)]">
+    <main className="">
       <div className="flex justify-between items-center">
         <h1>Win Margin Calculator</h1>
         {/*<Button
