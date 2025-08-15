@@ -66,8 +66,8 @@ function Calculator() {
         </Button>*/}
       </div>
       <div
-        className="bg-white p-[clamp(1.25rem,6.5vw,2rem)] pt-8 mt-3 md:pb-8
-          md:mt-5 rounded-2xl flex flex-col items-center duration-200"
+        className="bg-white p-[clamp(1.25rem,6.5vw,2rem)] md:pb-6 mt-3 md:mt-5
+          rounded-2xl flex flex-col items-center"
       >
         <div className="flex flex-col">
           <h2 className="text-navy-900">Player Ratings</h2>
@@ -115,18 +115,20 @@ function Calculator() {
           <h3 className="mt-[clamp(0.875rem,2vh,1.25rem)]">Expected Outcome</h3>
           <div
             className="bg-navy-900/10 flex justify-center items-center
-              mt-[clamp(0.5rem,1.5vh,1rem)] h-12 rounded-2xl"
+              mt-[clamp(0.5rem,1.5vh,1rem)] h-[clamp(3rem,7vh,4rem)]
+              rounded-2xl"
           >
             <span
-              className={`text-sm font-medium
+              className={`text-[clamp(0.875rem,0.25rem+3vw,1rem)] md:text-sm
+                font-medium
                 ${allValid() ? "text-navy-900/90" : "text-navy-900/20"}`}
             >
               {allValid() ? formatResults() : "Enter Ratings For Result"}
             </span>
           </div>
           <span
-            className={`text-navy-900/50 text-[0.625rem] md:text-xs font-normal
-              mt-2 text-center ${allValid() ? "opacity-100" : "opacity-0 h-0"}`}
+            className={`text-navy-900/50 text-[0.625rem] font-normal mt-2
+              text-center ${allValid() ? "opacity-100" : "opacity-0 h-0"}`}
           >
             To gain rating, you must <u>outperform</u> this score.
           </span>
