@@ -2,6 +2,7 @@ export type MarginResults = {
   winner: "Your" | "Opp.";
   higherScore: number;
   lowerScore: number;
+  ratingDiff: number;
 };
 
 /*
@@ -23,6 +24,7 @@ export function calculateMarginLinear(
     lowerScore: Math.round(
       playedTo * (1 - Math.min(Math.abs(ratingDiff) + 0.0001, 1)),
     ),
+    ratingDiff,
   };
 
   return results;
@@ -84,7 +86,8 @@ export function calculateMargin(
   const results: MarginResults = {
     winner: youRating > oppRating ? "Your" : "Opp.",
     higherScore: playedTo,
-    lowerScore: ratingDiff <= 1.0 ? Math.round(playedTo * normalizedLower) : -1,
+    lowerScore: Math.round(playedTo * normalizedLower),
+    ratingDiff,
   };
 
   return results;
